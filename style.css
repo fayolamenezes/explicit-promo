@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: white;
+  color: #000;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  padding-left: 10rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #303030;
+  font-weight: 500;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.grey-btn, .black-btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.grey-btn {
+  background: #d9d9d9;
+  color: #000;
+}
+
+.black-btn {
+  background: #000;
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  z-index: 10;
+  background: white;
+}
+
+.hero h1 {
+  font-size: 67px;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+
+.hero p {
+  color: #6c6c6c;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Card */
+.card-wrapper {
+  height: 300vh;
+  background: white;
+  position: relative;
+}
+
+.flip-card {
+  width: 400px;
+  height: 250px;
+  background: #000;
+  color: white;
+  border-radius: 16px;
+  transform: rotate(-10deg);
+  transform-origin: left center;
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  translate: -50% 0;
+  perspective: 2000px;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background: black;
+  color: white;
+}
+
+.flip-card-back {
+  background: hotpink;
+  transform: rotateY(180deg);
+  color: black;
+}
+
+.second-section {
+  height: 100vh;
+  background: #f7f7f7;
+  padding: 100px 20px;
+  text-align: center;
+}
