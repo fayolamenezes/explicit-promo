@@ -375,7 +375,7 @@ body {
 
 /* Backgrounds */
 .purple-bg {
-  background: #3c0a4d;
+  background:rgb(131, 67, 246);
 }
 
 .pink-bg {
@@ -692,7 +692,7 @@ body {
 }
 
 .purple-bg {
-  background-color: #3c0a4d;
+  background-color: rgb(131, 67, 246);
 }
 
 .cta-section {
@@ -750,7 +750,7 @@ body {
 }
 
 .site-footer {
-  background: #111;
+  background: rgb(131, 67, 246);
   color: #fff;
   padding: 80px 40px 40px;
   font-family: 'Inter', sans-serif;
