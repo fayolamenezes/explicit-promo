@@ -55,7 +55,7 @@ gsap.utils.toArray(".feature-block").forEach((block, i) => {
     },
     opacity: 1,
     y: 0,
-    duration: 0.8,
+    duration: 0.2,
     ease: "power2.out",
     delay: i * 0.1
   });
@@ -64,29 +64,19 @@ gsap.utils.toArray(".feature-block").forEach((block, i) => {
 // BLACK SLIDE TRANSITION
 let slideTimeline = gsap.timeline({
   scrollTrigger: {
-    trigger: "#whoCanUse",
+    trigger: "#whoCanUseWrapper",
     start: "top top",
-    end: "+=200%",
+    end: () => "+=" + window.innerHeight, // dynamically match viewport height
     scrub: true,
     pin: true
   }
 });
 
+// Only animate the black slide during the pinned scroll
 slideTimeline
-  .to("#whoCanUse", {
-    x: "100vw",
-    ease: "power2.inOut"
-  }, 0)
-  .fromTo("#blackSlide", {
-    x: "100vw"
-  }, {
-    x: "0vw",
-    ease: "power2.inOut"
-  }, 0.05)
-  .to("#blackSlide", {
-    x: "-100vw",
-    ease: "power2.inOut"
-  }, 1);
+  .fromTo("#blackSlide", { x: "100vw" }, { x: "0vw", ease: "power2.inOut" }, 0.2)
+  .to("#blackSlide", { x: "-100vw", ease: "power2.inOut" }, 0.7);
+
 
 // GROWTH SECTION TEXT SLIDE IN
 gsap.utils.toArray(".growth-step").forEach((step, i) => {
@@ -100,7 +90,6 @@ gsap.utils.toArray(".growth-step").forEach((step, i) => {
     y: 0,
     duration: 1,
     ease: "power2.out",
-    delay: i * 0.2
   });
 });
 
@@ -115,7 +104,6 @@ gsap.utils.toArray(".stat-content").forEach((content, i) => {
     y: 0,
     duration: 1,
     ease: "power2.out",
-    delay: i * 0.2
   });
 });
 
