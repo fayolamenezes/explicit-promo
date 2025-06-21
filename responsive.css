@@ -87,6 +87,26 @@
     font-size: 100px;
   }
 
+  .campaign-image-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .campaign-left,
+  .campaign-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .small-img,
+  .large-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
   .faq-container {
     flex-direction: column;
     gap: 40px;
@@ -221,16 +241,44 @@
 
   .campaign-image-layout {
     flex-direction: column;
+    align-items: center;
     gap: 20px;
+  }
+
+  .campaign-left,
+  .campaign-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .small-img,
+  .large-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
   }
 
   .faq-left h2 {
     font-size: 32px;
   }
 
+  .faq-container {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 10px;
+  }
+
+  .faq-left,
+  .faq-right {
+    width: 100%;
+  }
+
   .faq-btn {
     padding: 12px 20px;
     font-size: 14px;
+    width: 100%;
+    max-width: 300px;
   }
 
   .cta-heading {
