@@ -1,0 +1,216 @@
+/* responsive.css */
+
+/* ---------- TABLET (768px - 1024px) ---------- */
+@media (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .nav-links {
+    padding-left: 0;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .flip-card {
+    width: 300px;
+    height: 200px;
+  }
+
+  .feature-block.left,
+  .feature-block.right {
+    padding: 0;
+    text-align: left;
+  }
+
+  .who-label,
+  .who-heading h2 {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .who-heading h2 {
+    font-size: 48px;
+  }
+
+  .growth-container {
+    flex-direction: column;
+  }
+
+  .growth-left video {
+    width: 100%;
+  }
+
+  .growth-right {
+    padding-right: 0;
+    gap: 100px;
+  }
+
+  .campaign-heading {
+    font-size: 100px;
+  }
+
+  .faq-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .testimonial-heading {
+    font-size: 60px;
+  }
+
+  .stat-number {
+    font-size: 180px;
+  }
+
+  .cta-heading {
+    font-size: 48px;
+  }
+
+  .footer-newsletter h3 {
+    font-size: 32px;
+  }
+
+  .footer-top {
+    gap: 40px;
+  }
+}
+
+/* ---------- MOBILE (≤ 768px) ---------- */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .flip-card {
+    width: 260px;
+    height: 180px;
+  }
+
+  .feature-block {
+    margin: 60px 0;
+  }
+
+  .who-columns {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .who-heading h2 {
+    font-size: 38px;
+  }
+
+  .black-content h2 {
+    font-size: 10vw;
+  }
+
+  .growth-section {
+    padding: 60px 20px;
+  }
+
+  .growth-step h2 {
+    font-size: 24px;
+  }
+
+  .growth-step p {
+    font-size: 16px;
+  }
+
+  .stat-number {
+    font-size: 120px;
+  }
+
+  .stat-block p {
+    font-size: 18px;
+  }
+
+  .testimonial-section {
+    padding: 100px 20px;
+  }
+
+  .testimonial-heading {
+    font-size: 42px;
+  }
+
+  .testimonial-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .testimonial-display {
+    max-width: 100%;
+  }
+
+  .testimonial-card {
+    width: 100%;
+  }
+
+  .campaign-heading {
+    font-size: 64px;
+  }
+
+  .campaign-image-layout {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .faq-left h2 {
+    font-size: 32px;
+  }
+
+  .faq-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .cta-heading {
+    font-size: 36px;
+  }
+
+  .footer-newsletter h3 {
+    font-size: 28px;
+  }
+
+  .footer-newsletter form {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .footer-newsletter input[type="email"] {
+    width: 100%;
+  }
+
+  .footer-newsletter button {
+    width: 100%;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    margin-top: 40px;
+  }
+}

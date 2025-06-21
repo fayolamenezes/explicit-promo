@@ -1,49 +1,64 @@
 gsap.registerPlugin(ScrollTrigger);
 
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+const isTablet = window.matchMedia("(max-width: 1024px)").matches;
+
 // HERO CARD ANIMATION
-let tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".hero",
-    start: "top top",
-    end: "+=250%",
-    scrub: true,
-    pin: true
-  }
-});
+if (!isMobile) {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "+=250%",
+      scrub: true,
+      pin: true
+    }
+  });
 
-tl.to("#animatedCard", {
-  y: "-60vh",
-  rotate: 0,
-  scale: 1.05,
-  ease: "power3.out"
-}, 0);
+  tl.to("#animatedCard", {
+    y: "-60vh",
+    rotate: 0,
+    scale: 1.05,
+    ease: "power3.out"
+  }, 0);
 
-tl.to(".hero-content", {
-  scale: 0.7,
-  opacity: 0,
-  ease: "power2.out"
-}, 0);
+  tl.to(".hero-content", {
+    scale: 0.7,
+    opacity: 0,
+    ease: "power2.out"
+  }, 0);
 
-tl.to(".flip-card-inner", {
-  rotateY: 180,
-  ease: "power2.inOut"
-}, 1);
+  tl.to(".flip-card-inner", {
+    rotateY: 180,
+    ease: "power2.inOut"
+  }, 1);
 
-tl.to("#animatedCard", {
-  width: "100vw",
-  height: "100vh",
-  borderRadius: 0,
-  top: 0,
-  translateY: 0,
-  ease: "power2.inOut"
-}, 1.1);
+  tl.to("#animatedCard", {
+    width: "100vw",
+    height: "100vh",
+    borderRadius: 0,
+    top: 0,
+    translateY: 0,
+    ease: "power2.inOut"
+  }, 1.1);
 
-tl.to(".card-back-content", {
-  opacity: 1,
-  y: -80,
-  duration: 1,
-  ease: "power3.out"
-}, 1.6);
+  tl.to(".card-back-content", {
+    opacity: 1,
+    y: -80,
+    duration: 1,
+    ease: "power3.out"
+  }, 1.6);
+} else {
+  // Simplified animation for mobile
+  gsap.set(".flip-card-inner", { rotateY: 180 });
+  gsap.set(".hero-content", { scale: 0.9, opacity: 0 });
+  gsap.set("#animatedCard", {
+    width: "100vw",
+    height: "auto",
+    borderRadius: 0
+  });
+  gsap.set(".card-back-content", { opacity: 1 });
+}
 
 // FEATURES FADE-IN
 gsap.utils.toArray(".feature-block").forEach((block, i) => {
@@ -62,23 +77,34 @@ gsap.utils.toArray(".feature-block").forEach((block, i) => {
 });
 
 // BLACK SLIDE TRANSITION
-let slideTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#whoCanUseWrapper",
-    start: "top top",
-    end: () => "+=" + window.innerHeight, // dynamically match viewport height
-    scrub: true,
-    pin: true
-  }
-});
+if (!isMobile) {
+  let slideTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#whoCanUseWrapper",
+      start: "top top",
+      end: () => "+=" + window.innerHeight,
+      scrub: true,
+      pin: true
+    }
+  });
 
-// Only animate the black slide during the pinned scroll
-slideTimeline
-  .fromTo("#blackSlide", { x: "100vw" }, { x: "0vw", ease: "power2.inOut" }, 0.2)
-  .to("#blackSlide", { x: "-100vw", ease: "power2.inOut" }, 0.7);
+  slideTimeline
+    .fromTo("#blackSlide", { x: "100vw" }, { x: "0vw", ease: "power2.inOut" }, 0.2)
+    .to("#blackSlide", { x: "-100vw", ease: "power2.inOut" }, 0.7);
+} else {
+  // Mobile fallback: just fade it in
+  gsap.from("#blackSlide", {
+    scrollTrigger: {
+      trigger: "#blackSlide",
+      start: "top 90%",
+    },
+    x: "100vw",
+    duration: 1,
+    ease: "power2.out"
+  });
+}
 
-
-// GROWTH SECTION TEXT SLIDE IN
+// GROWTH SECTION TEXT
 gsap.utils.toArray(".growth-step").forEach((step, i) => {
   gsap.to(step, {
     scrollTrigger: {
@@ -89,7 +115,7 @@ gsap.utils.toArray(".growth-step").forEach((step, i) => {
     opacity: 1,
     y: 0,
     duration: 1,
-    ease: "power2.out",
+    ease: "power2.out"
   });
 });
 
@@ -103,18 +129,16 @@ gsap.utils.toArray(".stat-content").forEach((content, i) => {
     opacity: 1,
     y: 0,
     duration: 1,
-    ease: "power2.out",
+    ease: "power2.out"
   });
 });
 
-// Testimonial switching
+// TESTIMONIAL SWITCHING
 document.querySelectorAll(".testimonial-preview").forEach(preview => {
   preview.addEventListener("click", () => {
     const id = preview.dataset.id;
-
     document.querySelectorAll(".testimonial-preview").forEach(p => p.classList.remove("active"));
     preview.classList.add("active");
-
     document.querySelectorAll(".testimonial-card").forEach(card => {
       card.classList.remove("active");
       if (card.dataset.id === id) card.classList.add("active");
@@ -122,23 +146,19 @@ document.querySelectorAll(".testimonial-preview").forEach(preview => {
   });
 });
 
-// Scroll buttons for testimonial list
+// SCROLL BUTTONS FOR TESTIMONIAL
 document.querySelector('.up-btn')?.addEventListener('click', () => {
-  const list = document.getElementById('testimonialList');
-  if (list) list.scrollBy({ top: -80, behavior: 'smooth' });
+  document.getElementById('testimonialList')?.scrollBy({ top: -80, behavior: 'smooth' });
 });
-
 document.querySelector('.down-btn')?.addEventListener('click', () => {
-  const list = document.getElementById('testimonialList');
-  if (list) list.scrollBy({ top: 80, behavior: 'smooth' });
+  document.getElementById('testimonialList')?.scrollBy({ top: 80, behavior: 'smooth' });
 });
 
-// GSAP scroll reveal
+// TESTIMONIAL REVEAL
 gsap.from(".testimonial-section", {
   scrollTrigger: {
     trigger: ".testimonial-section",
-    start: "top bottom",
-    toggleActions: "play none none none"
+    start: "top bottom"
   },
   y: 100,
   opacity: 0,
@@ -146,6 +166,7 @@ gsap.from(".testimonial-section", {
   ease: "power2.out"
 });
 
+// FAQ INTERACTION
 document.querySelectorAll(".faq-item").forEach(item => {
   const toggle = item.querySelector(".toggle-btn");
   const close = item.querySelector(".close-btn");
@@ -162,11 +183,11 @@ document.querySelectorAll(".faq-item").forEach(item => {
   });
 });
 
+// CTA ANIMATION
 gsap.from(".cta-section", {
   scrollTrigger: {
     trigger: ".cta-section",
-    start: "top bottom",
-    toggleActions: "play none none none"
+    start: "top bottom"
   },
   y: 100,
   opacity: 0,
@@ -174,6 +195,7 @@ gsap.from(".cta-section", {
   ease: "power3.out"
 });
 
+// NEWSLETTER FORM
 document.getElementById("newsletter-form").addEventListener("submit", function (e) {
   e.preventDefault();
   const emailInput = document.getElementById("newsletter-email");
@@ -185,7 +207,7 @@ document.getElementById("newsletter-form").addEventListener("submit", function (
     errorMsg.style.display = "block";
   } else {
     errorMsg.style.display = "none";
-    alert("Subscribed with: " + email); // Replace with real API call if needed
+    alert("Subscribed with: " + email);
     emailInput.value = "";
   }
 });
