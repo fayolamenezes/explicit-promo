@@ -83,8 +83,17 @@
     box-sizing: border-box;
   }
 
+  .campaign-section,
+  .faq-section {
+    padding-left: max(20px, 5vw);
+    padding-right: max(20px, 5vw);
+  }
+
   .campaign-heading {
     font-size: 100px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
   }
 
   .campaign-image-layout {
@@ -95,9 +104,11 @@
 
   .campaign-left,
   .campaign-right {
+    flex: 1 1 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 0;
   }
 
   .small-img,
@@ -110,6 +121,11 @@
   .faq-container {
     flex-direction: column;
     gap: 40px;
+  }
+
+  .faq-right {
+    flex: 1 1 100%;
+    min-width: 0;
   }
 
   .testimonial-heading {
@@ -237,6 +253,15 @@
 
   .campaign-heading {
     font-size: 64px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  .campaign-section,
+  .faq-section {
+    padding-left: max(20px, 5vw);
+    padding-right: max(20px, 5vw);
   }
 
   .campaign-image-layout {
@@ -247,9 +272,11 @@
 
   .campaign-left,
   .campaign-right {
+    flex: 1 1 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 0;
   }
 
   .small-img,
@@ -272,6 +299,7 @@
   .faq-left,
   .faq-right {
     width: 100%;
+    min-width: 0;
   }
 
   .faq-btn {
