@@ -15,6 +15,24 @@
     flex-wrap: wrap;
   }
 
+  .hero,
+  .hero-content,
+  .hero .container,
+  .flip-card,
+  .feature-block,
+  .testimonial-section,
+  .faq-container,
+  .growth-section,
+  .cta-section,
+  footer {
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
+
   .hero h1 {
     font-size: 48px;
   }
@@ -26,6 +44,7 @@
   .flip-card {
     width: 300px;
     height: 200px;
+    margin: 0 auto;
   }
 
   .feature-block.left,
@@ -55,6 +74,13 @@
   .growth-right {
     padding-right: 0;
     gap: 100px;
+  }
+
+  #whoCanUseWrapper,
+  .black-slide-section {
+    min-height: 100vh;
+    padding: 80px 20px;
+    box-sizing: border-box;
   }
 
   .campaign-heading {
@@ -89,6 +115,24 @@
 
 /* ---------- MOBILE (≤ 768px) ---------- */
 @media (max-width: 768px) {
+  .hero,
+  .hero-content,
+  .hero .container,
+  .flip-card,
+  .feature-block,
+  .testimonial-section,
+  .faq-container,
+  .growth-section,
+  .cta-section,
+  footer {
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .hero {
+    padding: 80px 20px;
+  }
+
   .hero h1 {
     font-size: 36px;
   }
@@ -105,6 +149,7 @@
   .flip-card {
     width: 260px;
     height: 180px;
+    margin: 0 auto;
   }
 
   .feature-block {
@@ -125,6 +170,11 @@
   }
 
   .growth-section {
+    padding: 60px 20px;
+  }
+
+  #whoCanUseWrapper,
+  .black-slide-section {
     padding: 60px 20px;
   }
 
